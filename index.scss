@@ -1,0 +1,1346 @@
+body,a,ul,li,h1,h2,h3,h4,h5,h6,dl,dt,dd{
+  margin:0;
+  padding:0;
+  list-style:none;
+  position:relative;
+  font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial",sans-serif;
+}
+body.searching{
+  overflow: hidden;
+}
+a{
+  text-decoration: none;
+}
+@mixin  gaizi{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+@mixin shangxia{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+@mixin zuoyou{
+  position:absolute;
+  left:0;
+  right:0;
+  margin:auto;
+}
+@mixin shangxia{
+  position:absolute;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+@mixin clear{
+  content:"";
+  display:block;
+  clear:both;
+  line-height:0;
+  height:0;
+}
+$number:12;
+$l-size:3000px;
+$m-size:1024px;
+$s-size:650px;
+@mixin onl{
+  @media screen and (max-width:$l-size){
+    @content;
+  }
+}
+@mixin onm{
+  @media screen and (max-width:$m-size){
+    @content;
+  }
+}
+@mixin ons{
+  @media screen and (max-width:$s-size){
+    @content;
+  }
+}
+@include onl{
+  @for $i from 1 through $number{
+    .col.l#{$i}{
+      width:percentage($i/$number);
+    }
+  }
+}
+@include onm{
+  @for $i from 1 through $number{
+    .col.m#{$i}{
+      width:percentage($i/$number);
+    }
+  }
+}
+@include ons{
+  @for $i from 1 through $number{
+    .col.s#{$i}{
+      width:percentage($i/$number);
+    }
+  }
+}
+.menu{
+  transition:all .6s ease;
+}
+.header{
+  //overflow: hidden;
+  z-index: 1500;
+  height:44px;
+  width:100%;
+  //position:absolute;
+  top:0;
+  left:0;
+  background:black;
+  .head-inner{
+    margin:0 auto;
+    //background:yellow;
+    width:100%;
+    height:44px;
+    max-width:1024px;
+    .nav{
+      overflow: hidden;
+      padding:0 15px;
+      border-sizing:border-box;
+      text-align: justify;
+      li{
+        height:44px;
+        line-height:44px;
+        //background:green;
+        padding:0 20px;
+        transition:all .8s ease;
+        display:inline-block;
+        box-sizing: border-box;
+        a{
+          display:block;
+          color:#fff;
+          span{
+            opacity:0;
+          }
+        }
+        &:hover{
+          opacity:0.8;
+        }
+      }
+      &::after{
+        content:'';
+        display:inline-block;
+        width:100%;
+        height:0;
+        overflow:hidden;
+        line-height:0;
+      }
+      .tishi{
+        overflow: hidden;
+        z-index: 22222000;
+        width:682px;
+        height:230px;
+        //top:44px;
+        //left:350px;
+        margin-left:166px;
+        //padding-bottom:15px;
+        //box-sizing:border-box;
+        box-shadow: 0px 0px 1px #AAAAAA;
+        background:#fff;
+        transition:all .6s ease;
+        opacity:0;
+        h3{
+          font-size: 12px;
+          margin-left:40px;
+          margin-top:30px;
+          //line-height: 60px;
+          font-weight: 400;
+          letter-spacing: normal;
+          color: #333;
+          transition:all .8s ease;
+          transform:translateX(1000px);
+        }
+        h3.yiru{
+          transform:translateX(0);
+        }
+        .tishi-list{
+          overflow: hidden;
+          margin:4px 40px;
+          .List{
+            margin:4px -55px;
+            padding-top:5px;
+            line-height: 25px;
+            transition:all .6s ease;
+            transform:translateX(1000px);
+            a{
+              color:#333;
+              padding:0 60px;
+            }
+            &:hover{
+              background:#ccc;
+              a{
+                color:#08c;
+              }
+            }
+          }
+          .List.yichu{
+            transform:translateX(0);
+          }
+          @for $i from 1 to 6{
+            .List:nth-child(#{$i}){
+              transition:all .4s ease $i*0.1s;
+              opacity:1;
+            }
+          }
+        }
+      }
+      .tishi.chuxian{
+        opacity:1;
+      }
+    }
+  }
+}
+.sousuo{
+  z-index: 99999999;
+  position:absolute;
+  width:700px;
+  height:44px;
+  top:0;
+  left:150px;
+  //background:yellow;
+  line-height: 44px;
+  transition:all .6s ease;
+  transform:translateX(1000PX);
+  .kuang{
+    float:left;
+    height:44px;
+    padding:0 20px;
+    background:url(imgs/l.svg) no-repeat center center;
+    box-sizing:border-box;
+    span{
+      opacity:0;
+    }
+  }
+  input{
+    outline: none;
+    border:none;
+    height:30px;
+    margin-top:6px;
+    display:block;
+    float:left;
+    width:550px;
+    background:black;
+  }
+  .close{
+    height:44px;
+    padding:21px 20px;
+    line-height:44px;
+    box-sizing: border-box;
+    float:right;
+    //background:pink;
+    .zuocha{
+      width:18px;
+      border-top:1px solid #fff;
+      transform:rotateZ(45deg);
+    }
+    .youcha{
+      width:18px;
+      border-top:1px solid #fff;
+      transform:rotateZ(-45deg);
+    }
+  }
+}
+.sousuo.fanhui{
+  transform: translateX(0);
+}
+.xiaoshi{
+  transform:scale(0,0);
+}
+
+.zhezhao{
+  position:fixed;
+  //width: 100%;
+  //height:100%;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  background:rgba(0,0,0,0.3);
+  z-index:1111;
+  display:none;
+}
+.zhezhao.liang{
+  display:block;
+}
+.header.guding{
+  position:fixed;
+  left:0;
+  top:0;
+}
+.xiangxi.delete{
+  display:none;
+}
+.footer.ShanChu{
+  display:none;
+}
+.footer-small.shan{
+  display:none;
+}
+.banner.Shan{
+  display:none;
+}
+.nav-iphone{
+  display:none;
+}
+//@media screen and (max-width:768px){
+@include onm{
+  .header{
+    left:0;
+    top:0;
+    width:100%;
+    z-index: 16000000;
+    position:absolute;
+    height:48px;
+    .head-inner{
+      margin:0 auto;
+      width:100%;
+      height:48px;
+      .menuZhankai{
+        display:block;
+      }
+      .nav{
+        display:none;
+      }
+      .nav-iphone{
+        position:fixed;
+        top:0;
+        left:0;
+        padding:0;
+        z-index: 18000000;
+        display:block;
+        border-sizing:border-box;
+        text-align: justify;
+        box-sizing: border-box;
+        height:48px;
+        width:100%;
+        //background:pink;
+        li{
+          position:fixed;
+          height:48px;
+          display:inline-block;
+          line-height: 48px;
+          padding:0 20px;
+          //background:red;
+        }
+      }
+
+    }
+  }
+  .menu{
+    left:0;
+    height:48px;
+    padding:0 20px;
+    box-sizing: border-box;
+    position:relative;
+    .heng-shang{
+      width:18px;
+      border-top:1px solid #fff;
+      position:absolute;
+      top:18px;
+      transition:all .4s ease;
+    }
+    .heng-shang.Dzhuan{
+      position:absolute;
+      transform:rotateZ(135deg) translateY(0PX) translateX(5px);
+    }
+    .heng-xia{
+      width:18px;
+      border-bottom:1px solid #fff;
+      position:absolute;
+      bottom:18px;
+      transition:all .4s ease;
+    }
+    .heng-xia.Szhuan{
+      position:absolute;
+      transform:rotateZ(45deg) translateY(-3px) translateX(-8px);
+    }
+  }
+  .logo-big{
+    width:48px;
+    left:0;
+    right:0;
+    margin:auto;
+    height:48px;
+    line-height:48px;
+    padding:0 20px;
+    background:url(imgs/ssl.svg) no-repeat center center;
+    box-sizing: border-box;
+    span{
+      opacity:0;
+    }
+  }
+  .bag-big{
+    right:0;
+    height:48px;
+    line-height:48px;
+    padding:0 20px;
+    background:url(imgs/bss.svg)no-repeat center center;
+    box-sizing: border-box;
+    transition:all .8s ease;
+    transform:translateX(0);
+    span{
+      opacity:0;
+    }
+  }
+  .bag-big.youru{
+    transform:translateX(1000px);
+  }
+}
+.menuZhankai{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index: 2000;
+  padding:0 50px;
+  box-sizing: border-box;
+  width:100%;
+  background:black;
+  transition:all .8s ease;
+  z-index: 6666666;
+  height:0;
+  ul{
+    margin-top:60px;
+    width:100%;
+    opacity:0;
+    transition:all .4s ease;
+    //background:yellow;
+    li{
+      height:48px;
+      width:100%;
+      ling-height:48px;
+      transform:translateX(-1000px);
+      opacity:0;
+      border-bottom:1px solid #999;
+      a{
+        height:48px;
+        line-height:48px;
+        display:block;
+        color:#fff;
+        span{
+          height:48px;
+          line-height: 48px;
+        }
+      }
+    }
+    li.feiru{
+      transform:translateX(0);
+      opacity:1;
+    }
+    @for $s from 1 to 8{
+      li:nth-child(#{$s}){
+        transition:all .4s ease $s*0.1s;
+        opacity:1;
+      }
+    }
+  }
+ ul.shanchu{
+    opacity:1;
+  }
+  .Search{
+    width:100%;
+    height:48px;
+    //background:red;
+    box-sizing: border-box;
+    border-bottom:1px solid #fff;
+    transition:all .4s ease;
+    opacity: 0;
+    //transform:translateX(-1000px);
+    .Kuang{
+      float:left;
+      height:48px;
+      line-height:48px;
+      padding:0 20px;
+      box-sizing: border-box;
+      background:url(imgs/l.svg) no-repeat center center;
+      span{
+        opacity:0;
+      }
+    }
+    input{
+      width:70%;
+      height:45px;
+      display:block;
+      float:left;
+      outline:none;
+      background:black;
+      border:0;
+      &::after{
+        @include clear;
+      }
+    }
+  }
+  .Search.feiru2{
+    //transform:translateX(0);
+    opacity:1;
+  }
+}
+.menuZhankai.Zhankai{
+  height:600px;
+}
+
+$nav-list:(
+        "logo":20px,
+        "mac":51px,
+        "ipad":50px,
+        "iphone":68px,
+        "watch":64px,
+        "tv":40px,
+        "music":60px,
+        "support":77px,
+        "search":40px,
+        "bag":38px
+);
+@each $d in map_keys($nav-list){
+.#{$d} a{
+  width:map_get($nav-list,#{$d});
+  background:url(imgs/#{$d}.svg) no-repeat center center;
+}
+}
+//.banner{
+//  width:100%;
+//  overflow: hidden;
+//  height:650px;
+//  position:relative;
+//  left:0;
+//  top:0;
+//  z-index: 1000;
+//  background:green;
+  //.banner-img{
+  //  position:absolute;
+  //  width:100%;
+  //  height:100%;
+  //}
+  //.ban-a{
+  //  a{
+  //    display:block;
+  //    width:100%;
+  //    height:100%;
+  //    background:url(imgs/iphone_6s_medium.jpg)no-repeat center bottom;
+  //  }
+  //}
+  //.ban-b{
+  //  a{
+  //    display:block;
+  //    width:100%;
+  //    height:100%;
+  //    background:url(imgs/ipad_pro_family_medium.jpg)no-repeat center bottom;
+  //  }
+  //}
+  //.ban-c{
+  //  a{
+  //    display:block;
+  //    width:100%;
+  //    height:100%;
+  //    background:url(imgs/apple_watch_trio_medium.jpg)no-repeat center center;
+  //  }
+  //}
+  //.ban-d{
+  //  a{
+  //    display:block;
+  //    width:100%;
+  //    height:100%;
+  //    background:url(imgs/macbook_medium.png)no-repeat center center;
+  //  }
+  //}
+  //.Button{
+  //  width:100%;
+  //  height:128px;
+  //  padding:0 30px;
+  //  position:absolute;
+  //  top:50%;
+  //  box-sizing: border-box;
+  //  .button-left{
+  //    width: 60px;
+  //    height:100%;
+  //    float:left;
+  //    background:url(imgs/1.png) no-repeat;
+  //  }
+  //  .button-right{
+  //    width: 40px;
+  //    height:100%;
+  //    float:right;
+  //    background:url(imgs/2.png) no-repeat center center;
+  //  }
+  //}
+  //.kongjian{
+  //  width:128px;
+  //  height:8px;
+  //  position:absolute;
+  //  bottom:10px;
+  //  left:50%;
+  //  margin-left:-64px;
+  //  li{
+  //    height:100%;
+  //    padding:0 10px;
+  //    display:inline-block;
+  //    a{
+  //      display:block;
+  //      width:8px;
+  //      height:8px;
+  //      border-radius: 50%;
+  //      background:#ccc;
+  //    }
+  //  }
+  //}
+//}
+@include onl{
+  .xiangxi{
+    overflow: hidden;
+    margin-top:20px;
+    height:200px;
+    width:100%;
+    background:red;
+    li{
+      width:25%;
+      height:200px;
+      float:left;
+      overflow: hidden;
+      position:relative;
+      box-sizing: border-box;
+      border-bottom:1px solid #fff;
+      border-right:1px solid #fff;
+      background:pink;
+      a{
+        display:block;
+        position:absolute;
+        width:100%;
+        height:100%;
+      }
+      .One{
+        background:url(imgs/apple_tv_medium.jpg) no-repeat center center;
+      }
+      .Two{
+        background:url(imgs/swift_playground_medium.jpg) no-repeat center center;
+      }
+      .Three{
+        background:url(imgs/public_betas_medium.jpg) no-repeat center center;
+      }
+      .Four{
+        background:url(imgs/bts_mac_medium.jpg) no-repeat center center;
+      }
+    }
+    li::after{
+      @include clear;
+    }
+  }
+}
+
+@include onm{
+  .xiangxi{
+    overflow: hidden;
+    margin-top:20px;
+    height:400px;
+    //width:100%;
+    overflow: hidden;
+    background:red;
+    li::after{
+      @include clear;
+    }
+    li{
+      height:200px;
+      float:left;
+      position:relative;
+      box-sizing: border-box;
+      border-bottom:1px solid #fff;
+      border-right:1px solid #fff;
+      background:pink;
+      a{
+        display:block;
+        position:absolute;
+        width:100%;
+        height:100%;
+      }
+      .One{
+        background:url(imgs/apple_tv_medium.jpg) no-repeat center center;
+      }
+      .Two{
+        background:url(imgs/swift_playground_medium.jpg) no-repeat center center;
+      }
+      .Three{
+        background:url(imgs/public_betas_medium.jpg) no-repeat center center;
+      }
+      .Four{
+        background:url(imgs/bts_mac_medium.jpg) no-repeat center center;
+      }
+    }
+    li::after{
+      @include clear;
+    }
+  }
+  //.banner{
+  //  width:100%;
+  //  overflow: hidden;
+  //  height:650px;
+  //  position:relative;
+  //  left:0;
+  //  top:0;
+  //  z-index: 1000;
+  //  background:green;
+    //.banner-img{
+    //  position:absolute;
+    //  width:100%;
+    //  height:100%;
+    //}
+    //.ban-a{
+    //  a{
+    //    display:block;
+    //    width:100%;
+    //    height:100%;
+    //    background:url(imgs/iphone_6s_small.jpg)no-repeat center bottom;
+    //  }
+    //}
+    //.ban-b{
+    //  a{
+    //    display:block;
+    //    width:100%;
+    //    height:100%;
+    //    background:url(imgs/ipad_pro_family_small.jpg)no-repeat center bottom;
+    //  }
+    //}
+    //.ban-c{
+    //  a{
+    //    display:block;
+    //    width:100%;
+    //    height:100%;
+    //    background:url(imgs/apple_watch_trio_small.jpg)no-repeat center center;
+    //  }
+    //}
+    //.ban-d{
+    //  a{
+    //    display:block;
+    //    width:100%;
+    //    height:100%;
+    //    background:url(imgs/macbook_small.png)no-repeat center center;
+    //  }
+    //}
+    //.Button{
+    //  width:100%;
+    //  height:128px;
+    //  padding:0 30px;
+    //  position:absolute;
+    //  top:50%;
+    //  box-sizing: border-box;
+    //  .button-left{
+    //    width: 60px;
+    //    height:100%;
+    //    float:left;
+    //    background:url(imgs/1.png) no-repeat;
+    //  }
+    //  .button-right{
+    //    width: 40px;
+    //    height:100%;
+    //    float:right;
+    //    background:url(imgs/2.png) no-repeat center center;
+    //  }
+    //}
+    //.kongjian{
+    //  width:128px;
+    //  height:8px;
+    //  position:absolute;
+    //  bottom:10px;
+    //  left:50%;
+    //  margin-left:-64px;
+    //  li{
+    //    height:100%;
+    //    padding:0 10px;
+    //    display:inline-block;
+    //    a{
+    //      display:block;
+    //      width:8px;
+    //      height:8px;
+    //      border-radius: 50%;
+    //      background:#ccc;
+    //    }
+    //  }
+    //}
+  //}
+}
+
+@include ons{
+  .xiangxi{
+    overflow: hidden;
+    margin-top:20px;
+    height:800px;
+    //width:100%;
+    overflow: hidden;
+    background:red;
+    li::after{
+      @include clear;
+    }
+    li{
+      height:200px;
+      float:left;
+      position:relative;
+      box-sizing: border-box;
+      border-bottom:1px solid #fff;
+      border-right:1px solid #fff;
+      background:pink;
+      a{
+        display:block;
+        position:absolute;
+        width:100%;
+        height:100%;
+      }
+      .One{
+        background:url(imgs/apple_tv_medium.jpg) no-repeat center center;
+      }
+      .Two{
+        background:url(imgs/swift_playground_medium.jpg) no-repeat center center;
+      }
+      .Three{
+        background:url(imgs/public_betas_medium.jpg) no-repeat center center;
+      }
+      .Four{
+        background:url(imgs/bts_mac_medium.jpg) no-repeat center center;
+      }
+    }
+    li::after{
+      @include clear;
+    }
+  }
+}
+.footer{
+  overflow: hidden;
+  width:100%;
+  height:368px;
+  background: #f2f2f2;
+  .foot-inner{
+    margin: 0 auto;
+    max-width:1024px;
+    height:297px;
+    padding:25px 10px;
+    box-sizing: border-box;
+    text-align:justify;
+    background:#f2f2f2;
+    dl{
+      display:inline-block;
+      padding:0 5px;
+      box-sizing: border-box;
+      height:100%;
+      //background:red;
+      dt{
+        color:#333;
+        font-size: 12px;
+      }
+      dd{
+        line-height:21px;
+        a{
+          color:#999;
+          font-size:12px ;
+        }
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+    &::after{
+      content:'';
+      display:inline-block;
+      width:100%;
+      height:0;
+      overflow:hidden;
+      line-height:0;
+    }
+  }
+  .about{
+    margin: 0 auto;
+    max-width:1024px;
+    height:70px;
+    padding:0 10px;
+    box-sizing: border-box;
+    text-align:justify;
+    background:#f2f2f2;
+    .about-shop{
+      width:100%;
+      height:26px;
+      line-height:26px;
+      border-bottom:1px solid #e3e3e3;
+      box-sizing: border-box;
+      li{
+        display:inline-block;
+        font-size:12px;
+        color:#AFACAC;
+        a{
+          color:#08c;
+        }
+      }
+    }
+    .about-legal{
+      width:100%;
+      height:30px;
+      line-height: 30px;
+      li{
+        display:inline-block;
+      }
+      .about-a{
+        font-size:12px;
+        padding-right:20px;
+        color:#AFACAC;
+      }
+      .about-b{
+        padding:0 10px;
+        a{
+          font-size:12px;
+          color:#333;
+        }
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      .about-c{
+        color:#AFACAC;
+        margin-top:-4px;
+      }
+    }
+  }
+}
+.footer-small{
+  display:none;
+}
+@include onm {
+  .footer {
+    display: none;
+  }
+  .footer-small {
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #f2f2f2;
+    .footer-list {
+      width: 100%;
+      height: auto;
+      margin-top: 20px;
+      padding-left: 20px;
+      box-sizing: border-box;
+      //background: black;
+      .footer-listX {
+        width: 100%;
+        height: 40px;
+        transition: all .8s ease;
+        border-bottom: 1px solid #EADCEB;
+        line-height: 40px;
+        overflow: hidden;
+        .listX {
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          overflow: hidden;
+          z-index: 2222;
+          .footer-listY {
+            display: block;
+            float: left;
+            width: 80%;
+            height: 40px;
+            color: #000;
+            font-size: 14px;
+            //padding-left:15px;
+            //box-sizing: border-box;
+            line-height: 40px;
+          }
+          .footer-listZ {
+            display: block;
+            float: right;
+            color: #000;
+            font-size: 14px;
+            width: 5%;
+            height: 40px;
+            line-height: 40px;
+          }
+        }
+        ul {
+          width: 100%;
+          height: 316px;
+          z-index: 999999;
+          background: #f2f2f2;
+          z-index: 2220;
+          li {
+            width: 100%;
+            height: 35px;
+            line-height: 35px;
+            a {
+              display: block;
+              width: 100%;
+              height: 100%;
+              color: #A9A9A9;
+              font-size: 12px;
+              transition: all .8s ease;
+              transform: translateY(-1000px);
+            }
+            a.feiru {
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+      .da.gaodu {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        overflow: hidden;
+      }
+      .db.gaodu1 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        overflow: hidden;
+      }
+      .dc.gaodu2 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        overflow: hidden;
+      }
+      .dd.gaodu3 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        overflow: hidden;
+      }
+      .de.gaodu4 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        overflow: hidden;
+      }
+      .df.gaodu5 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        //overflow: hidden;
+      }
+      .dg.gaodu6 {
+        width: 100%;
+        height: 356px;
+        //background:pink;
+        //border-bottom: 1px solid #fff;
+        //overflow: hidden;
+        //}
+
+      }
+      .footer-list.one {
+        height: 621px;
+        background: #f2f2f2;
+      }
+      .footer-message {
+        width: 100%;
+        height: 145px;
+        //background: yellow;
+        padding-left: 20px;
+        padding-top: 15px;
+        box-sizing: border-box;
+        .footer-message-a {
+          width: 100%;
+          height: 26px;
+          line-height: 26px;
+          //background: red;
+          li {
+            height: 100%;
+            display: inline-block;
+            color: #999;
+            font-size: 12px;
+            a {
+              color: #08c;
+            }
+          }
+        }
+        .footer-message-b {
+          width: 100%;
+          height: 20px;
+          line-height: 20px;
+          margin-top: 10px;
+          //background: blue;
+          .footer-message-ba {
+            display: block;
+            float: left;
+            width: 20px;
+            height: 100%;
+            margin-right: 10px;
+            box-sizing: border-box;
+            background: url(imgs/16.png) no-repeat center center;
+          }
+          .footer-message-bb {
+            display: block;
+            height: 100%;
+            width: 200px;
+            float: left;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            //line-height:20px;
+            color: #999;
+            font-size: 12px;
+          }
+        }
+        .footer-message-c {
+          width: 100%;
+          height: 53px;
+          padding-top: 13px;
+          box-sizing: border-box;
+          //background: pink;
+          .footer-message-ca {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            color: #999;
+            font-size: 12px;
+            //background: green;
+          }
+          .footer-message-cc {
+            width: 100%;
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+            //background: black;
+            .ft-a {
+              height: 100%;
+              padding: 0 15px;
+              border-right: 1px solid #999;
+              color: #333;
+            }
+            .ft-b {
+              height: 100%;
+              padding: 0 15px;
+              border-right: 1px solid #999;
+              color: #333;
+            }
+            .ft-c {
+              height: 100%;
+              padding: 0 15px;
+              border-right: 1px solid #999;
+              color: #333;
+            }
+            .ft-d {
+              height: 100%;
+              padding: 0 15px;
+              border-right: 1px solid #999;
+              color: #333;
+            }
+            .ft-e {
+              height: 100%;
+              padding: 0 15px;
+              color: #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//banner部分
+.banner{
+  z-index: 10;
+  height:auto;
+  overflow: hidden;
+  .content{
+    height: 650px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    li.active{
+      display: block;
+      transform: translateX(0);
+    }
+    li.left{
+      display: block;
+      transform: translateX(-100%);
+    }
+    li.right{
+      transform: translateX(100%);
+      display: block;
+    }
+    li{
+      display: none;
+      position: absolute;
+      left:0;
+      top: 0;
+      width: 100%;
+      height: 650px;
+      box-sizing: border-box;
+      transition: all 0.6s ease;
+      a{
+        position: absolute;
+        left:0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        .title{
+          font-weight: normal;
+          @include zuoyou;
+          top: 100px;
+          text-align: center;
+          font-size: 50px;
+          color: #333;
+        }
+        .des{
+          @include zuoyou;
+          top: 180px;
+          text-align: center;
+          font-size: 26px;
+          color: #333;
+        }
+      }
+    }
+    .iphone6s{
+      background: url("imgs/iphone_6s_medium.jpg") no-repeat center 240px;
+    }
+    .ipad{
+      background: url("imgs/ipad_pro_family_medium.jpg") no-repeat center 200px;
+    }
+    .watch{
+      background: url("imgs/apple_watch_trio_medium.jpg") no-repeat center 200px;
+    }
+    .macbook{
+      background: url("imgs/macbook_medium.png") no-repeat center 250px;
+    }
+  }
+  .moveleft,.moveright{
+    width: 67px;
+    height: 128px;
+    @include  shangxia;
+    z-index: 999;
+  }
+  .moveleft{
+    background-image: url("imgs/1.png");
+    background-position: top center;
+    background-repeat:no-repeat;
+    left: 20px;
+    margin-top:300px;
+    transition:all 0.6s ease;
+    opacity: 0;
+  }
+  .moveright{
+    background-image:  url("imgs/2.png");
+    background-position: center center;
+    background-repeat:no-repeat;
+    right: 20px;
+    margin-top:300px;
+    transition:all 0.6s ease;
+    opacity: 0;
+  }
+  .pagegation{
+    width: 112px;
+    height: 16px;
+    @include  zuoyou;
+    margin-bottom: 50px;
+    //bottom:20px;
+    text-align: justify;
+    &::after{
+      content: '';
+      display: inline-block;
+      width:100%;
+      height:0;
+      line-height:0;
+      overflow: hidden;
+    }
+    li{
+      height: 8px;
+      width: 8px;
+      border-radius: 50px;
+      float: left;
+      background: #333;
+      display: inline-block;
+      margin: 0 9px;
+    }
+    li.active{
+      box-shadow: 0 0 0 1px #187DCE;
+      border: 1px solid #197ECE;
+      background: #fff;
+      transform: translateY(-1px);
+    }
+  }
+  .list{
+    margin-top: 20px;
+    width: 100%;
+    height:200px ;
+    //background: red;
+    li{
+      width: 25%;
+      height:200px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #fff;
+      border-right: 1px solid #fff;
+      position: relative;
+      a{
+        display: block;
+        @include gaizi;
+      }
+    }
+    @include onm{
+      li{
+        width: 50%;
+      }
+      .tv{
+        background: url("imgs/iphone_6s_small.jpg") center center no-repeat;
+        background-size: cover;
+      }
+      .ios{
+        background: url("imgs/ipad_pro_family_small.jpg") center center no-repeat;
+        background-size: cover;
+      }
+      .swift{
+        background: url("imgs/apple_watch_trio_small.jpg") center center no-repeat;
+        background-size: cover;
+      }
+      .add{
+        background: url("imgs/macbook_small.png") center center no-repeat;
+        background-size: cover;
+      }
+    }
+    @include ons{
+      li{
+        width: 100%;
+      }
+    }
+  }
+}
+//当在中屏的时候的banner布局
+@include ons{
+  .banner .content{
+    height: 480px;
+    .iphone6s{
+      background: url("imgs/iphone_6s_small.jpg") no-repeat center 240px;
+    }
+    .ipad{
+      background: url("imgs/ipad_pro_family_small.jpg") no-repeat center 200px;
+    }
+    .watch{
+      background: url("imgs/apple_watch_trio_small.jpg") no-repeat center 200px;
+    }
+    .macbook{
+      background: url("imgs/macbook_small.png") no-repeat center 250px;
+    }
+  }
+
+}
